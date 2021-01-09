@@ -1,0 +1,184 @@
+/* demo4 css */
+.demo4-bg{background:rgb(31, 50, 62) none repeat scroll 0 0;}
+.demo4.video-area {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 580px;
+}
+video#myVideo {
+  height: 100%;
+  width: 100%;
+}
+/* video container */
+.videoContainer {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  color: rgb(204, 204, 204);
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.videoContainer:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.3);
+  z-index: 6;
+  border-radius: 6px;
+  pointer-events: none;
+}
+/* video caption css */
+.caption {
+  backface-visibility: hidden;
+  background: rgba(31, 50, 62, 0.81);
+  border-radius: 6px 6px 0 0;
+  color: rgb(221, 221, 221);
+  display: none;
+  font-size: 14px;
+  font-weight: 300;
+  left: 0;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 2px;
+  width: 100%;
+}
+/*** VIDEO CONTROLS CSS ***/
+/* control holder */
+.control {
+  background:rgba(31, 50, 62, 0.81);
+  bottom: 0;
+  color: rgb(204, 204, 204);
+  display: none;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+/* control bottom part */
+.btmControl {
+  clear: both;
+}
+.control .btnPlay {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  border-radius: 0;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  cursor: pointer;
+  float: left;
+  height: 30px;
+  padding: 5px;
+  width: 34px;
+}
+.control .icon-play {
+  background: url(images/vp_sprite.png) no-repeat -11px 0;
+  width: 6px;
+  height: 9px;
+  display: block;
+  margin: 4px 0 0 8px;
+}
+.control .icon-pause {
+  background: url(images/vp_sprite.png) no-repeat -34px -1px;
+  width: 8px;
+  height: 9px;
+  display: block;
+  margin: 4px 0 0 8px;
+}
+
+.control .selected {
+  font-size: 15px;
+  color: #ccc;
+}
+.control .sound {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  cursor: pointer;
+  float: right;
+  height: 30px;
+  margin-right: 31px;
+  padding: 0;
+  width: 30px;
+}
+.control .icon-sound {
+  background: url(images/vp_sprite.png) no-repeat -19px 0;
+  width: 13px;
+  height: 10px;
+  display: block;
+  margin: 8px 0 0 8px;
+}
+.control .muted .icon-sound {
+  width: 7px !important;
+}
+.control .btnFS {
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  height: 30px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  transform: rotate(180deg);
+  width: 30px;
+}
+.control .icon-fullscreen {
+  background: url(images/vp_sprite.png) no-repeat 0 0;
+  width: 10px;
+  height: 10px;
+  display: block;
+  margin: 8px 0 0 9px;
+}
+
+/* PROGRESS LINe CSS */
+/* Progress line */
+.progress-line {
+  float: left;
+}
+.progres {
+  background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgb(0, 0, 0) inset;
+  cursor: pointer;
+  height: 7px;
+  margin: 12px 0 0;
+  position: relative;
+  width: 70vh;
+  overflow:hidden;
+}
+.progres span {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 10px;
+}
+.timeBar {
+  z-index: 10;
+  width: 0;
+  background: #fff;
+  box-shadow: 0 0 7px rgba(107, 204, 226, 0.5);
+}
+/* VOLUME BAR CSS */
+/* volume bar */
+.volume {
+  position: relative;
+  cursor: pointer;
+  width: 70px;
+  height: 10px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.volumeBar {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #eee;
+  z-index: 10;
+}
