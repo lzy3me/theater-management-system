@@ -8,7 +8,7 @@ Theater Management System is my first mini-project from Web Programming subject 
 - Back-End: __PHP__
 - Web Server: __Nginx__
 - Database: __MariaDB__
-- Container: __[Docker-Compose (added on Jan 2021)](https://gist.github.com/lzy3me/69334f4022addc8c6fa5b98a0376009b)__
+- Container: __[Docker-Compose (added on Jan 2021)](https://gist.github.com/lzy3me/85c444f8599bbbadc7e21403046fda60)__
 
 ## File include
 
