@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater Management System V.2.0</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .new {
+            transition-duration: 100ms;
+        }
+        .new:hover {
+            cursor: pointer;
+            transition-duration: 100ms;
+            transform: scale(1.15);
+        }
+        #loginForm {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="width: 100vw;">
+        <div class="jumbotron">
+            <h1>Theater Management System V.2.0 </h1>
+            <p>Improving for your precious movie theater. </p>
+            <p>Server status: <span id="status" class="text-right text-warning">waiting</span></p>
+        </div>
+
+        <div id="select-user" class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <div class="card new" onclick="selectUser('owner')">
+                    <img class="card-img-top" src="../src/image/owner.jpg" alt="Owner">
+                    <div class="card-img-overlay text-white">
+                        <h4>For Owner</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card new" onclick="selectUser('staff')">
+                    <img class="card-img-top" src="../src/image/staff.png" alt="Staff">
+                    <div class="card-img-overlay">
+                        <h4>For Staff</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="loginForm" action="../php/handler/user.php" method="POST">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <legend id="userType"></legend>
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" placeholder="Enter email" name="username" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" placeholder="Enter password" name="password" id="password" required>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a href="javascript:;" onclick="selectUser('back')" class="btn btn-secondary">
+                        Go back
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script>
+        $('document').ready(function() {
+            $.ajax({
+                url: '../php/utils/serverStatus.php',
+                type: 'GET'
+            }).done(function (d, textStatus, xhr) {
+                if (xhr.responseText != 'Connection successfully') {
+                    $('#status').text('offline');
+                    $('#status').removeClass('text-warning');
+                    $('#status').removeClass('text-success');
+                    $('#status').addClass('text-danger');
+                } else {
+                    $('#status').removeClass('text-warning');
+                    $('#status').removeClass('text-danger');
+                    $('#status').addClass('text-success');
+                    $('#status').text('online');
+                } 
+            });
+        });
+
+        function selectUser(userType) {
+            if (userType=="owner") {
+                $('#select-user').slideUp();
+                $('#loginForm').slideDown();
+                $('#userType').text('Owner Login');
+            } else if (userType=="staff") {
+                $('#select-user').slideUp();
+                $('#loginForm').slideDown();
+                $('#userType').text('Staff Login');
+            } else {
+                $('#select-user').slideDown();
+                $('#loginForm').slideUp();
+            }
+        }
+    </script>
+</body>
+</html>
